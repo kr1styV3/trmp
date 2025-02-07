@@ -1,0 +1,118 @@
+
+    /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+    }
+
+    header {
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+
+    main {
+        margin: 20px 0;
+    }
+
+    /* Artists Section */
+    .artist {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px auto;
+        background-color: #000;
+        color: #fff;
+        max-width: 800px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .artist-intro {
+        width: 150px;
+        height: auto;
+        margin-right: 20px;
+        align-self: center;
+    }
+
+    .artist-info {
+        flex: 1;
+        max-width: 600px;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, height 0.5s ease-in-out;
+        max-height: 80px;
+    }
+
+    .artist-info p {
+        font-size: 1.1rem;
+        margin-bottom: 0.5em;
+    }
+
+    .artist-info .full-desc {
+        display: none;
+    }
+
+    .artist-info:hover {
+        max-height: none;
+        height: auto;
+    }
+
+    .artist-info:hover .short-desc {
+        display: none;
+    }
+
+    .artist-info:hover .full-desc {
+        display: block;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    footer {
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+    }
+
+    /* Carousel Section */
+    .carousel {
+        margin: 50px 0;
+    }
+
+    .carousel-container {
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .carousel-container img {
+        width: calc(25% - 10px);
+        height: auto;
+        transition: transform 0.5s ease-in-out;
+        object-fit: cover;
+        border-radius: 5px;
+        margin: 0 10px;
+    }
+
+    .carousel-container img:hover {
+        transform: scale(1.05);
+    }

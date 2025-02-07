@@ -1,0 +1,131 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.logo {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+
+main {
+    margin: 20px 0;
+}
+
+/* Artists Section */
+.artist {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    margin: 20px auto;       /* Center the artist div */
+    background-color: #000;  /* Black background */
+    color: #fff;             /* White text */
+    max-width: 800px;        /* Limit the width */
+    padding: 20px;           /* Add padding */
+    border-radius: 5px;      /* Optional: Add rounded corners */
+}
+
+
+.artists {
+    margin: 40px 0;
+    text-align: center; /* Center content */
+    background-color: #000; /* Black background */
+    color: #fff;           /* White text */
+}
+
+.artist-intro {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    align-self: center;
+}
+
+.artist-info {
+    flex: 1; /* Allow the artist-info to fill the remaining space */
+    max-width: 600px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, height 0.5s ease-in-out;
+    max-height: 80px;
+}
+
+.artist-info p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+}
+
+/* Full description is hidden by default */
+.artist-info .full-desc {
+    display: none;
+}
+
+/* Hover effect to expand the container and display full text */
+.artist a {
+    color: #fff; /* White link text */
+}
+
+.artist a:hover {
+    color: #ccc; /* Slightly lighter on hover */
+}
+
+.artist-info:hover {
+    max-height: none; /* Remove height restriction */
+    height: auto;
+}
+
+.artist-info:hover .short-desc {
+    display: none;
+}
+
+.artist-info:hover .full-desc {
+    display: block;
+}
+
+
+/* Carousel Section */
+.carousel {
+    margin: 50px 0;
+/* Carousel Styling */
+}
+.carousel-container {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    width: calc(100% - 40px); /* Full width minus 20px padding on each side */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding around the carousel container */
+}
+
+.carousel-container img {
+    width: calc(25% - 10px); /* Each image takes 25% width minus a small margin */
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 0 10px; /* Adds space between the images */
+}
+
+.carousel-container img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}

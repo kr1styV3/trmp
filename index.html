@@ -7,26 +7,40 @@
    Temporanea
   </title>
   <link href="css/styles.css" rel="stylesheet"/>
-  <!-- Adjust the path as necessary -->
- </head>
- <body>
-  <header>
-   <h1 class="logo">
-    <img alt="Temporanea Logo" class="logo-image" src="img/logo.png"/>
-    TEMPORANEA
-   </h1>
-  </header>
-  <main>
-   <!-- Hero Section (Current Exhibition) -->
-   <h2>
-    Un nuovo modo per percepire e diffondere Arte, Cultura, Bellezza.
-   </h2>
-   <h2>
-    indipendente  autofinanziata  libera!
-   </h2>
-   <h3>
-    TEMPORANEA è il nuovo progetto per diffondere il messaggio che la strada appartiene a chi la eleva.
-   </h3>
+</head>
+  <body>
+    <div class="page-container">
+      <header>
+          <h1 class="logo" style="position: relative; bottom: -2px">
+            <img alt="Temporanea Logo" class="logo-image" style="position: relative; bottom: 4px;" src="img/logo.png"/>
+            TEMPORANEA
+        </h1>
+    </header>
+
+    <!-- <h2 class="super-duper-upper-text">
+        SPRIGIONA LA TUA FANTASIA
+    </h2>
+    <!-- <h2 class="top-text">
+        sono aperte le candidature
+    </h2> -->
+    <!-- <h2 class="top-text">
+    Temporanea ti da la possibilita di esprimerti
+    </h2> --> -->
+    <picture>
+        <!-- Small devices -->
+        <source srcset="img/text-s.png" media="(max-width: 768px)">
+        <!-- Default (larger devices) -->
+        <img src="img/text2.png" alt="Responsive Text Image"
+             class="responsive-text">
+      </picture>
+
+    <a href="html/contact.html" style="color: white;">
+    <button style="height: 60px; width: 250px; margin-top: 10px; background-color: black; text-decoration-color: white;">
+        <h3 class="confirm_selection" style="color: white; font: 1.5em verdana; font-weight: bold;">
+            CANDIDATI
+        </h3>
+    </button>
+</a>
    <!-- Carousel Section -->
    <div class="carousel-container">
     <div class="carousel-item">
@@ -86,21 +100,22 @@
      </a>
     </div>
    </div>
-  </main>
-  <footer>
-   <p>
-    © 2024 Temporanea. All rights reserved.
-   </p>
-   <div class="footer-links">
-    <a class="footer-link" href="https://www.instagram.com/p/C7kTjctA3ua/" target="_blank">
-     <img alt="Instagram" class="icon" src="img/instagram-6-24.png"/>
-     @temporanea
-    </a>
-    <a class="footer-link" href="https://github.com/kr1styV3" target="_blank">
-     <img alt="GitHub" class="icon" src="img/github-11-24.png"/>
-     GitHub
-    </a>
-   </div>
-  </footer>
- </body>
+</div>
+   <footer>
+       <p>
+           © 2025 Temporanea. All rights reserved.
+        </p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.instagram.com/p/C7kTjctA3ua/" target="_blank">
+                <img alt="Instagram" class="icon" src="img/instagram-6-24.png"/>
+                @Temporanea
+            </a>
+            <a class="footer-link" href="privacy.html">Privacy Policy</a> | <a class="footer-link" href="terms.html">Termini e Condizioni</a>
+            <a class="footer-link" href="https://github.com/kr1styV3" target="_blank">
+                <img alt="GitHub" class="icon" src="img/github-11-24.png"/>
+                GitHub
+            </a>
+        </div>
+    </footer>
+</body>
 </html>

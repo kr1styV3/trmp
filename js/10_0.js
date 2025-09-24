@@ -5,6 +5,7 @@
         const galleryContainer = document.querySelector('.carousel-container');
 
         // Shuffle the images array and select the first 4 for the carousel
+
         const shuffledImages = imagePaths.sort(() => 0.5 - Math.random()).slice(0, 4);
 
         // Add images to the carousel container (row of 4)
@@ -29,4 +30,3 @@
 
         }, 3000); // Change every 3 seconds
     });
-    

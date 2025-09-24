@@ -3,23 +3,36 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+main {
+    flex: 1;
+}
+html {
+    height: 100%;
+}
 body {
     font-family: Arial, sans-serif;
-    background-color: #4b4b4b;
+    background-color: #ffffff;
     color: #fff;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.page-container {
+    flex: 1; /* Takes remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    min-height: 94vh;
 }
 
 header {
-    padding: 30px;
+    padding: 4px;
     background-color: #000;
     color: #fff;
 }
 
 .logo {
-    font-size: 2.5rem;
-    letter-spacing: 5px;
+    font-size: 1.3rem;
+    letter-spacing: 0.57px;
     color: #fff;
 }
 main {
@@ -72,10 +85,11 @@ h2 {
     line-height: 1.5; /* Improve readability */
 }
 h3 {
-    margin: 25px 20px; /* Add some vertical spacing */
-    font-size: 1.8rem; /* Adjust font size as needed */
+    margin: 10px 0px; /* Add some vertical spacing */
+    font-size: 1rem; /* Adjust font size as needed */
+    font: arial;
     text-align: center; /* Center-align text */
-    line-height: 1.5; /* Improve readability */
+    line-height: 1; /* Improve readability */
 }
 
 
@@ -85,6 +99,19 @@ h3 {
     }
     h3 {
         font-size: 1.2rem; /* Smaller text on mobile */
+    }
+    .page-container {
+        flex: 1; /* Takes remaining vertical space */
+        display: flex;
+        flex-direction: column;
+        min-height: 80vh;
+    }
+    .top-text {
+        color: black;
+        font: verdana;
+        font-weight: bold;
+        margin-top: 20px;
+        font-size: 10px;
     }
 }
 
@@ -114,7 +141,7 @@ h3 {
     .logo {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: left;
         gap: 5px; /* Add spacing between the logo and text */
     }
 
@@ -123,14 +150,27 @@ h3 {
         height: 125px; /* Adjust size as needed */
         object-fit: contain; /* Ensure the logo maintains its aspect ratio */
     }
+    #text {
+        align-self: center;
+        object-fit :fill;
+        width: 200px;
+        content: url(../img/text-s.png);
+    }
+}
+.super-duper-upper-text {
+    color: black;
+    font: 2em verdana;
+    font-weight: 700;
+    margin-top: 20px;
 }
 
-
-
-
-
-
-
+.top-text {
+    color: black;
+    font: 2em verdana;
+    margin-top: 1px;
+    width: fit-content;
+    align-self: center;
+}
 
 .carousel {
     margin: 40px 0;
@@ -145,7 +185,7 @@ h3 {
     align-items: center;
     gap: 20px; /* Space between carousel items */
     overflow-x: auto;
-    padding: 20px;
+    padding: 7px;
     scroll-behavior: smooth;
     margin: 20px auto;
     width: 90%;
@@ -174,7 +214,6 @@ h3 {
     border-radius: 10px;
     transition: transform 0.3s ease; /* Smooth image scaling */
 }
-
 .carousel-overlay {
     position: absolute;
     bottom: 0;
@@ -198,7 +237,7 @@ h3 {
 footer {
     background-color: #000;
     color: #fff;
-    padding: 10px 0;
+    margin-top: 0%;
 }
 
 /* Add styles for the logo inside the header */
@@ -206,12 +245,19 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px; /* Add spacing between the logo and text */
+    gap: 2px; /* Add spacing between the logo and text */
+}
+
+#text {
+    align-self: center;
+    object-fit :fill;
+    width: 800px;
+    content: url(../img/text2.png);
 }
 
 .logo-image {
-    width: 250px; /* Adjust size as needed */
-    height: 200px; /* Adjust size as needed */
+    width: 57px; /* Adjust size as needed */
+    height: 57px; /* Adjust size as needed */
     object-fit: contain; /* Ensure the logo maintains its aspect ratio */
 }
 
@@ -220,6 +266,7 @@ footer {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 20px;
     gap: 20px; /* Spacing between icons */
 }
 
@@ -228,7 +275,7 @@ footer {
     color: #fff;
     display: flex;
     align-items: center;
-    gap: 8px; /* Spacing between icon and text */
+    gap: 3px; /* Spacing between icon and text */
     font-size: 1rem;
 }
 
@@ -242,4 +289,34 @@ footer {
     margin-right: 8px; /* Spacing between icon and text */
     vertical-align: middle; /* Align with text */
 }
+.confirm_selection {
+    animation: glow 1s infinite alternate;
+}
 
+@keyframes glow {
+    to {
+        text-shadow: 0 0 10px white;
+    }
+}
+
+.confirm_selection {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.responsive-text {
+    display: block;
+    margin: 0 auto; /* center */
+    width: 800px;   /* default for large screens */
+  }
+
+  @media (max-width: 567px) {
+    .responsive-text {
+      width: 300px; /* or 500px depending on design */
+    }
+  }
+  @media (max-width: 768px) {
+    .responsive-text {
+      width: 370px; /* or 500px depending on design */
+    }
+  }

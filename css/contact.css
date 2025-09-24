@@ -1,0 +1,126 @@
+header {
+    padding: 4px;
+    background-color: #000;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.3rem;
+    letter-spacing: 0.57px;
+    color: #fff;
+	text-decoration: underline;
+	-webkit-text-decoration-color: white; /* safari still uses vendor prefix */
+	text-decoration-color: white;
+}
+
+/* Add styles for the logo inside the header */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px; /* Add spacing between the logo and text */
+}
+
+.logo-image {
+    width: 57px; /* Adjust size as needed */
+    height: 57px; /* Adjust size as needed */
+    object-fit: contain; /* Ensure the logo maintains its aspect ratio */
+}
+h2 {
+    margin: 25px 20px; /* Add some vertical spacing */
+    font-size: 2rem; /* Adjust font size as needed */
+    font: verdana;
+    text-align: center; /* Center-align text */
+    line-height: 1.5; /* Improve readability */
+}
+h3 {
+    margin: 10px 0px; /* Add some vertical spacing */
+    font-size: 1rem; /* Adjust font size as needed */
+    font: verdana;
+    text-align: center; /* Center-align text */
+    line-height: 1; /* Improve readability */
+}
+.signup-form {
+    background-color: black;
+    color: white;
+    padding: 1.1rem;
+    border: 1px solid grey;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    margin: 3rem auto;
+  }
+
+  .signup-form form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .signup-form label {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .signup-form input,
+  .signup-form textarea {
+    padding: 0.75rem;
+    background-color: #1a1a1a;
+    border: 1px solid grey;
+    border-radius: 8px;
+    font: verdana;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .signup-form input::placeholder,
+  .signup-form textarea::placeholder {
+    color: #ccc;
+  }
+
+  .signup-form button {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .signup-form button:hover {
+    background-color: grey;
+    color: white;
+  }
+
+  a{
+    color: #fff;
+	-webkit-text-decoration-color: white; /* safari still uses vendor prefix */
+	text-decoration-color: white;
+}
+
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  gap: 20px; /* Spacing between icons */
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 3px; /* Spacing between icon and text */
+  font-size: 1rem;
+}
+
+.footer-link:hover {
+  color: #f39c12; /* Highlight color on hover */
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Your Info</title>
+  <link rel="stylesheet" href="../css/contact.css">
+<body style="background-color: black;">
+<a href="../index.html" class="back-link">
+	<header>
+	<h1 class="logo">
+	<img alt="Temporanea Logo" class="logo-image" src="../img/logo.png"/>
+	TEMPORANEA
+	</h1>
+	</header>
+</a>
+  <section class="signup-form">
+    <form action="https://formsubmit.co/candidatura@temporanea.art" method="POST">
+      <label for="name">Nome / Nome d'Arte</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email" style="padding-top: 6px;">E-mail</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="instagram" style="padding-top: 6px;">instagram-link / portfolio</label>
+      <input type="url" id="instagram" name="instagram" placeholder="https://sito.com/tuo_profilo">
+
+      <label for="description" style="padding-top: 6px;">Parlaci di te o del tuo progetto</label>
+      <textarea id="description" name="description" rows="4"></textarea>
+      <label>
+        <input type="checkbox" name="privacy" required>
+        Ho letto e accetto la <a href="../privacy/privacy.html" target="_blank">Privacy Policy</a> e i <a href="../privacy/terms.html" target="_blank">Termini di Servizio</a>.
+      </label>
+
+      <button type="submit" >Submit</button>
+    </form>
+  </section>
+</body>
+</html>
+<footer>
+  <p>
+      © 2025 Temporanea. All rights reserved.
+   </p>
+   <div class="footer-links">
+       <a class="footer-link" href="https://www.instagram.com/p/C7kTjctA3ua/" target="_blank">
+           <img alt="Instagram" class="icon" src="../img/instagram-6-24.png"/>
+           @Temporanea
+       </a>
+       <a href="../privacy/privacy.html">Privacy Policy</a> | <a href="../privacy/terms.html">Termini e Condizioni</a>
+       <a class="footer-link" href="https://github.com/kr1styV3" target="_blank">
+           <img alt="GitHub" class="icon" src="../img/github-11-24.png"/>
+           GitHub
+       </a>
+   </div>
+</footer>
+<script>
+  document.querySelector("form").addEventListener("submit", function(event) {
+      let valid = true;
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let link = document.getElementById("instagram").value.trim();
+      let description = document.getElementById("description").value.trim();
+
+      // Basic checks: at least 1 char
+      if (name.length < 1 || email.length < 1 || description.length < 1) {
+          alert("Please fill in all fields with at least 1 character.");
+          valid = false;
+      }
+
+      // Allowed platforms
+      const allowedDomains = ["instagram.com", "behance.net", "linkedin.com", "github.com", "artstation.com"];
+      if (link) {
+          let ok = false;
+          try {
+              let url = new URL(link);
+              ok = allowedDomains.some(domain => url.hostname.includes(domain));
+          } catch (e) {
+              ok = false;
+          }
+
+          if (!ok) {
+              alert("Please provide a valid portfolio link (Instagram, Behance, LinkedIn, GitHub, Artstation).");
+              valid = false;
+          }
+      }
+
+      if (!valid) {
+          event.preventDefault();
+      }
+  });
+  </script>

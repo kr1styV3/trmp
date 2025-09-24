@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    flex: 1;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.page-container {
+    flex: 1; /* Takes remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    min-height: 94vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;        /* Full width */
+    z-index: 1000;      /* On top of everything */
+    padding: 4px;
+    background-color: #000;
+    color: #fff;
+}
+
+
+.logo {
+    font-size: 1.3rem;
+    letter-spacing: 0.57px;
+    color: #fff;
+}
+main {
+    margin: 20px 0;
+}
+h2 {
+    margin: 25px 20px; /* Add some vertical spacing */
+    font-size: 2rem; /* Adjust font size as needed */
+    text-align: center; /* Center-align text */
+    line-height: 1.5; /* Improve readability */
+}
+h3 {
+    margin: 10px 0px; /* Add some vertical spacing */
+    font-size: 1rem; /* Adjust font size as needed */
+    font: arial;
+    text-align: center; /* Center-align text */
+    line-height: 1; /* Improve readability */
+}
+
+/* Add styles for the logo inside the header */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px; /* Add spacing between the logo and text */
+}
+
+.logo-image {
+    width: 57px; /* Adjust size as needed */
+    height: 57px; /* Adjust size as needed */
+    object-fit: contain; /* Ensure the logo maintains its aspect ratio */
+}

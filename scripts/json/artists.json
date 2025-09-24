@@ -1,0 +1,42 @@
+{
+    "logo": "../../img/ex14/14_logo.jpg",
+    "description": "",
+    "artists": [
+        {
+            "name": "Leonardo Cappellini",
+            "photo": "../../img/ex14/14_artist_0.jpg",
+            "short_desc": "Mi chiamo Leonardo Cappellini, sono nato a Firenze, Italia nel 1995.",
+            "full_desc": "Mi chiamo Leonardo Cappellini, sono nato a Firenze, Italia nel 1995.\n\nDopo aver frequentato il liceo Scientifico mi sono iscritto alla facoltà universitaria di Design di Firenze, mia città natale, dove ho conseguito la laurea nel 2018. \nDurante gli studi ho maturato una crescente passione per la natura in tutti i suoi aspetti, in particolare per il regno vegetale.\n\nGià durante gli studi liceali ho iniziato a creare piccoli oggetti in legno, fin quando, attraverso la visione di un filmato, ho scoperto la tornitura del legno.\nUn amore a prima vista, una passione!\nDopo aver acquistato un piccolo tornio vi ho dedicato tutto il mio tempo libero, ma le ore passate nel piccolo laboratorio creato nell’autorimessa di famiglia non mi bastavano mai.\nLa mia aspirazione era dedicarmici a tempo pieno!\nCosì, con il duplice scopo di crearmi un laboratorio più grande e avvicinarmi alla natura ho deciso di trasferirmi fuori città in una casa immersa nella natura, vicino ad un bosco e circondata da uliveti\ntipici delle colline toscane.\n\nTutt’ora vivo e lavoro in questo magnifico posto che si trova a Compiobbi vicino a Firenze. Un luogo che concilia l’ispirazione e l’amore per la natura.\n\nAdoro lavorare il legno massello di provenienza esclusivamente locale, con il quale realizzo gran parte delle mie opere. Lavoro solo legno di\nrecupero, proveniente da potature o abbattimento per malattia dell’albero. Non potrei sopportare il solo pensare che un albero è stato abbattuto allo scopo di realizzare oggetti.\n\nI miei lavori sono frutto dell’ispirazione quotidiana a contatto con la natura. Questa prende vita nelle mie opere creando un connubio tra tornitura, scultura e pirografia."
+        },
+        {
+            "name": "Chiara Siddu",
+            "photo": "../../img/ex14/14_artist_1.jpg",
+            "short_desc": "Nata a Cagliari nel 2002, Chiara Siddu è un'artista che opera nell'ambito scultoreo-installativo e preparazione di base grafico.",
+            "full_desc": "Nata a Cagliari nel 2002, Chiara Siddu è un'artista che opera nell'ambito scultoreo-installativo e preparazione di base grafico. Con una preparazione precedente alla scuola di xilografia e pittura presso l'associazione Remo Branca, frequenta l'indirizzo di arti figurative al Liceo Artistico Asproni di Iglesias. Nel 2022 si iscrive all'Accademia di belle arti di Firenze, studiando scultura e proseguendo la sua ricerca nel campo dell' installazione. La sua produzione artistica è accompagnata da un percorso politico profondo, attraverso la partecipazione attiva nella città, affronta tematiche quali la gentrificazione, transfemminismo e gli spazi urbani come punto focale della socialità. Lo studio delle sue opere parte dall'antropologia, traendo ispirazione tanto dalle sue esperienze dirette quanto da diverse tematiche sociali di più ampio respiro, oltre che dai principali aspetti socio-naturalistici e urbani del suo territorio natale."
+        },
+        {
+            "name": "Edoardo Sessa",
+            "photo": "../../img/ex14/14_artist_2.jpg",
+            "short_desc": "Edoardo Sessa (Varese, 1995) scultore e artista visivo, vive e lavora a Bologna.",
+            "full_desc": "Edoardo Sessa (Varese, 1995) scultore e artista visivo, vive e lavora a Bologna.\nSi diploma in scultura all’Accademia di Belle Arti di Bologna, durante il biennio è stato selezionato \nper un progetto Erasmus presso la UAL Chelsea College of Arts di Londra. Nel 2022 fonda \nHidden Garage, spazio espositivo indipendente per la ricerca artistica, con sede a Bologna, che \ncoinvolge artisti nazionali e del territorio, inoltre offre la possibilità a quattro artisti di creare il \nproprio studio al proprio interno.\nEdoardo ha collaborato con diverse organizzazioni di Bologna, Milano e Varese, tra cui Galleria \nL’Ariete Artecontemporanea, Galleria Stefano Forni, Spazio 15 (Brescia), The Rooom e spazio Ex\nFornace di Milano. Nel 2021 è stato selezionato per Prochild Project, progetto europeo per la \ndifesa dagli abusi dei minori, curato da Eleonora Frattarolo.\nNello stesso periodo ha lavorato come assistente presso lo studio di Davide Rivalta a Pianoro.\nNel 2023 è stato selezionato per ARTCITY Bologna con il progetto video The Silence of The Crib.\nRecentemente sta collaborando con la Weatherbys Bank di Londra nella quale sono esposti \nalcuni suoi lavori: Becoming Object e Untitled (Ephemeral Lights)"
+        },
+        {
+            "name": "Milo Maricelli",
+            "photo": "../../img/ex14/14_artist_3.jpg",
+            "short_desc": "Milo Maricelli nasce a Bellinzona, Svizzera, nel 2000. Scolpisce utilizzando ceramica, pietra e argilla, esplorando le forme di vita che si adattano agli ambienti aridi e ai climi estremi, evocando uno scenario di siccità.",
+            "full_desc": "Milo Maricelli nasce a Bellinzona, Svizzera, nel 2000. Scolpisce utilizzando ceramica, pietra e argilla, esplorando le forme di vita che si adattano agli ambienti aridi e ai climi estremi, evocando uno scenario di siccità."
+        }
+    ],
+    "carousel_images": [
+        "../../img/ex14/14_0.jpg",
+        "../../img/ex14/14_1.jpg",
+        "../../img/ex14/14_2.jpg",
+        "../../img/ex14/14_3.jpg",
+        "../../img/ex14/14_4.jpg",
+        "../../img/ex14/14_5.jpg",
+        "../../img/ex14/14_6.jpg",
+        "../../img/ex14/14_7.jpg",
+        "../../img/ex14/14_8.jpg",
+        "../../img/ex14/14_9.jpg"
+    ]
+}

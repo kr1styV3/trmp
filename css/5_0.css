@@ -123,6 +123,13 @@
         margin: 0 5px;
     }
 }
+/* Small devices: 1 full-width image */
+@media (max-width: 600px) {
+    .carousel-container img {
+        width: 100%; /* One image spanning full width */
+        margin: 10px 0; /* Space above/below */
+    }
+}
 
 /* Popup overlay */
 .lightbox {

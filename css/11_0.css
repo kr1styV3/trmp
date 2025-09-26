@@ -134,13 +134,51 @@
     }
 }
 
-/* Small devices: 1 full-width image */
-@media (max-width: 600px) {
-    .carousel-container img {
-        width: 100%; /* One image spanning full width */
-        margin: 10px 0; /* Space above/below */
-    }
+/* Popup overlay */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
 }
+
+/* Image inside popup */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Navigation arrows */
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
 
     .page-container {
         flex: 1; /* Takes remaining vertical space */

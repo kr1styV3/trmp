@@ -92,11 +92,31 @@ main {
 .artist a:hover {
     color: #ccc; /* Slightly lighter on hover */
 }
-
+.page-container {
+    flex: 1; /* Takes remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    min-height: 94vh;
+}
 /* Footer */
 footer {
     padding: 20px;
     background-color: #000;
     color: #fff;
     text-align: center;
+}
+/* Medium devices: 2 images per row */
+@media (max-width: 1024px) {
+    .carousel-container img {
+        width: calc(50% - 10px); /* Two images */
+        margin: 0 5px;
+    }
+}
+
+/* Small devices: 1 full-width image */
+@media (max-width: 600px) {
+    .carousel-container img {
+        width: 100%; /* One image spanning full width */
+        margin: 10px 0; /* Space above/below */
+    }
 }

@@ -116,7 +116,27 @@ main {
     margin: 0 auto;
     padding: 0 20px; /* Padding around the carousel container */
 }
+/* Medium devices: 2 images per row */
+@media (max-width: 1024px) {
+    .carousel-container img {
+        width: calc(50% - 10px); /* Two images */
+        margin: 0 5px;
+    }
+}
 
+/* Small devices: 1 full-width image */
+@media (max-width: 600px) {
+    .carousel-container img {
+        width: 100%; /* One image spanning full width */
+        margin: 10px 0; /* Space above/below */
+    }
+}
+.page-container {
+    flex: 1; /* Takes remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    min-height: 94vh;
+}
 .carousel-container img {
     width: calc(25% - 10px); /* Each image takes 25% width minus a small margin */
     height: auto;

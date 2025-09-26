@@ -5,7 +5,10 @@
         padding: 0;
         box-sizing: border-box;
     }
-
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
     body {
         font-family: Arial, sans-serif;
         background-color: #fff;
@@ -27,12 +30,7 @@
     main {
         margin: 20px 0;
     }
-    .page-container {
-        flex: 1; /* Takes remaining vertical space */
-        display: flex;
-        flex-direction: column;
-        min-height: 94vh;
-    }
+
     /* Artists Section */
     .artist {
         display: flex;
@@ -84,10 +82,7 @@
     .artist-info:hover .full-desc {
         display: block;
     }
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+
     footer {
         padding: 20px;
         background-color: #000;
@@ -136,3 +131,9 @@
         margin: 10px 0; /* Space above/below */
     }
 }
+    .page-container {
+        flex: 1; /* Takes remaining vertical space */
+        display: flex;
+        flex-direction: column;
+        min-height: 70vh;
+    }

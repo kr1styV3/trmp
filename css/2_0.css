@@ -40,7 +40,7 @@ main {
     color: #fff;             /* White text */
     max-width: 800px;        /* Limit the width */
     padding: 20px;           /* Add padding */
-    border-radius: 5px;      /* Optional: Add rounded corners */
+         /* Optional: Add rounded corners */
 }
 
 .artist-intro {

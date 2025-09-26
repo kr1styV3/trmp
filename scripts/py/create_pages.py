@@ -118,7 +118,7 @@ def generate_css_file(page_id):
         color: #fff;
         max-width: 800px;
         padding: 20px;
-        border-radius: 5px;
+
     }}
 
     .artist-intro {{
@@ -186,7 +186,7 @@ def generate_css_file(page_id):
         height: auto;
         transition: transform 0.5s ease-in-out;
         object-fit: cover;
-        border-radius: 5px;
+
         margin: 0 10px;
     }}
 

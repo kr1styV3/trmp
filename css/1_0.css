@@ -42,7 +42,7 @@ main {
     color: #fff;             /* White text */
     max-width: 800px;        /* Limit the width */
     padding: 20px;           /* Add padding */
-    border-radius: 5px;      /* Optional: Add rounded corners */
+         /* Optional: Add rounded corners */
 }
 
 
@@ -187,7 +187,7 @@ main {
     height: auto;
     transition: transform 0.5s ease-in-out;
     object-fit: cover;
-    border-radius: 5px;
+
     margin: 0 10px; /* Adds space between the images */
 }
 

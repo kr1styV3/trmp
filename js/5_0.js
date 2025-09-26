@@ -3,11 +3,11 @@
         const imagePaths = ['../img/ex5/5_0.jpg', '../img/ex5/5_1.jpg', '../img/ex5/5_2.jpg', '../img/ex5/5_3.jpg', '../img/ex5/5_4.jpg', '../img/ex5/5_5.jpg', '../img/ex5/5_6.jpg', '../img/ex5/5_7.jpg', '../img/ex5/5_8.jpg', '../img/ex5/5_9.jpg', '../img/ex5/5_10.jpg', '../img/ex5/5_11.jpg', '../img/ex5/5_12.jpg', '../img/ex5/5_13.jpg', '../img/ex5/5_14.jpg', '../img/ex5/5_15.jpg', '../img/ex5/5_16.jpg', '../img/ex5/5_17.jpg'];
 
 
-    const galleryContainer = document.querySelector('.carousel-container');
+const galleryContainer = document.querySelector('.carousel-container');
 
     // --- Initial load of 4 random images ---
     let shuffledImages = imagePaths.sort(() => 0.5 - Math.random()).slice(0, 4);
-    galleryContainer.innerHTML = ""; // clear just in case
+    galleryContainer.innerHTML = "";
     shuffledImages.forEach((imagePath) => {
         const imgElement = document.createElement('img');
         imgElement.src = imagePath;
@@ -16,13 +16,11 @@
         galleryContainer.appendChild(imgElement);
     });
 
-    // Keep track of images in the carousel
     let images = galleryContainer.querySelectorAll('img');
 
     // --- Rotate carousel every 3 seconds ---
     setInterval(() => {
         shuffledImages = imagePaths.sort(() => 0.5 - Math.random()).slice(0, 4);
-
         shuffledImages.forEach((imagePath, index) => {
             images[index].src = imagePath;
             images[index].dataset.index = imagePaths.indexOf(imagePath);
@@ -83,4 +81,30 @@
             if (e.key === 'Escape') closeBtn.click();
         }
     });
+
+    // --- Swipe support for mobile ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightboxImg.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightboxImg.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        if (Math.abs(swipeDistance) > 50) { // at least 50px movement
+            if (swipeDistance < 0) {
+                // Swipe left → next image
+                nextBtn.click();
+            } else {
+                // Swipe right → prev image
+                prevBtn.click();
+            }
+        }
+    }
 });

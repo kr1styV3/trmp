@@ -124,7 +124,7 @@
    /* Medium devices: 2 images per row */
 @media (max-width: 1024px) {
     .carousel-container img {
-        width: calc(50% - 10px); /* Two images */
+        width: calc(60% - 10px); /* Two images */
         margin: 0 5px;
     }
 }

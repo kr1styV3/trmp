@@ -1,47 +1,95 @@
-body {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-	background-color: #000; /* nero, in linea col tuo sito */
-	color: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-  }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-  .thankyou-container {
-	text-align: center;
-	padding: 20px;
-  }
-
-  .logo {
+    header {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #444;
+    }
+  .logodown {
 	width: 150px;
 	height: auto;
 	margin-bottom: 20px;
+	align-self: center;
   }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+    }
 
-  h1 {
-	font-size: 2rem;
-	margin-bottom: 10px;
-  }
+    .logo img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
 
-  p {
-	font-size: 1.2rem;
-	margin-bottom: 20px;
-  }
+    .thankyou-container {
+      text-align: center;
+      padding: 40px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-  .back-home {
-	display: inline-block;
-	padding: 10px 20px;
-	background-color: #fff;
-	color: #000;
-	text-decoration: none;
-	border-radius: 6px;
-	transition: background-color 0.3s ease, color 0.3s ease;
-  }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
 
-  .back-home:hover {
-	background-color: #444;
-	color: #fff;
-  }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .back-home {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .back-home:hover {
+      background-color: #444;
+      color: #fff;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px; /* Add spacing between the logo and text */
+}
+
+.logo-image {
+    width: 57px; /* Adjust size as needed */
+    height: 57px; /* Adjust size as needed */
+    object-fit: contain; /* Ensure the logo maintains its aspect ratio */
+}
+header {
+    padding: 4px;
+    background-color: #000;
+    color: #fff;
+}

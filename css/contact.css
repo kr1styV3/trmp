@@ -7,10 +7,7 @@ header {
 .logo {
     font-size: 1.3rem;
     letter-spacing: 0.57px;
-    color: #fff;
-	text-decoration: underline;
-	-webkit-text-decoration-color: white; /* safari still uses vendor prefix */
-	text-decoration-color: white;
+    color: #fff; /* safari still uses vendor prefix */
 }
 
 /* Add styles for the logo inside the header */
@@ -99,8 +96,6 @@ h3 {
 
   a{
     color: #fff;
-	-webkit-text-decoration-color: white; /* safari still uses vendor prefix */
-	text-decoration-color: white;
 }
 
 

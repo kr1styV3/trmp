@@ -14,15 +14,49 @@
     }
 
     header {
-        padding: 20px;
+        padding: 4px;
         background-color: #000;
         color: #fff;
     }
 
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px; /* Add spacing between the logo and text */
+    font-size: 1.3rem;
+    letter-spacing: 0.57px;
+    color: #fff;
+}
+@media (max-width: 768px) {
     .logo {
-        font-size: 2.5rem;
-        letter-spacing: 5px;
+        font-size: 1rem;
+        letter-spacing: 3px;
+        color: #fff;
+         display: flex;
+        align-items: center;
+        gap: 5px; /* Add spacing between the logo and text */
     }
+
+    .logo-image {
+        width: 150px; /* Adjust size as needed */
+        height: 125px; /* Adjust size as needed */
+        object-fit: contain; /* Ensure the logo maintains its aspect ratio */
+    }
+    #text {
+        align-self: center;
+        object-fit :fill;
+        width: 200px;
+        content: url(../img/text-s.png);
+    }
+}
+.logo-image {
+    width: 57px; /* Adjust size as needed */
+    height: 57px; /* Adjust size as needed */
+    object-fit: contain; /* Ensure the logo maintains its aspect ratio */
+}
 
     main {
         margin: 20px 0;

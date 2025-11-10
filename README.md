@@ -10,7 +10,7 @@
 > dal momento che hai la cartella sul sistema
 > apri un terminale
 > [!IMPORTANT]
-> *ricordati di fare**_git pull_*
+> *ricordati di fare*_git pull_*
 
 > devi entrare nella cartella degli script
 > sul terminale

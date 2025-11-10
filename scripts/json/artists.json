@@ -1,26 +1,13 @@
 {
-    "logo": "../../img/ex14/14_logo.jpg",
-    "description": "",
-    "artists": [],
-    "carousel_images": [
-        "../../img/ex14/14_0.jpg",
-        "../../img/ex14/14_1.jpg",
-        "../../img/ex14/14_2.jpg",
-        "../../img/ex14/14_3.jpg",
-        "../../img/ex14/14_4.jpg",
-        "../../img/ex14/14_5.jpg",
-        "../../img/ex14/14_6.jpg",
-        "../../img/ex14/14_7.jpg",
-        "../../img/ex14/14_8.jpg",
-        "../../img/ex14/14_9.jpg",
-        "../../img/ex14/14_10.jpg",
-        "../../img/ex14/14_11.jpg",
-        "../../img/ex14/14_12.jpg",
-        "../../img/ex14/14_13.jpg",
-        "../../img/ex14/14_14.jpg",
-        "../../img/ex14/14_15.jpg",
-        "../../img/ex14/14_16.jpg",
-        "../../img/ex14/14_17.jpg",
-        "../../img/ex14/14_18.jpg"
-    ]
+    "logo": "../../img/ex15/15_logo.jpg",
+    "description": "lalla",
+    "artists": [
+        {
+            "name": "lalal",
+            "photo": "../../img/ex15/15_artist_0.jpg",
+            "short_desc": "lala",
+            "full_desc": "lalal"
+        }
+    ],
+    "carousel_images": []
 }

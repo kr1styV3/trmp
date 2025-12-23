@@ -1,0 +1,25 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000; /* optional */
+	perspective: 1000px;
+}
+
+#logo {
+	cursor: pointer;
+	transition: transform 1s ease;
+	transform-style: preserve-3d;
+	height: 300px;
+	width: 300px;
+}
+
+/* animation class */
+#logo.animate {
+	transform: rotateZ(360deg) rotateX(20deg) scale(20) translateZ(300px);
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Header</title>
+	<link rel="stylesheet" href="../css/new_page.css">
+</head>
+<body>
+	<nav class="nav" id="nav">
+		<a href="team.html" class="nav-item"data-href="team.html">Team</a>
+
+
+		<a href="calendario.html" class="nav-item"data-href="calendario.html">Calendario</a>
+
+
+		<a href="mostre.html" class="nav-item active" data-href="mostre.html">Mostre</a>
+
+
+		<a href="info.html" class="nav-item" data-href="info.html">Info e Candidature</a>
+	</nav>
+
+</body>
+</html>
+<script>
+	const nav = document.getElementById("nav");
+	const items = nav.querySelectorAll(".nav-item");
+
+	function centerItem(item) {
+		const navCenter = nav.offsetWidth / 2;
+		const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+
+		nav.scrollTo({
+			left: itemCenter - navCenter,
+			behavior: "smooth"
+		});
+	}
+
+	// centra la pagina attuale al load
+	window.addEventListener("load", () => {
+		const active = nav.querySelector(".active");
+		if (active) centerItem(active);
+	});
+
+	// anima anche al click
+	items.forEach(item => {
+		item.addEventListener("click", e => {
+			e.preventDefault();
+
+			centerItem(item);
+
+			setTimeout(() => {
+				window.location.href = item.dataset.href;
+			}, 300); // durata animazione
+		});
+	});
+</script>
+

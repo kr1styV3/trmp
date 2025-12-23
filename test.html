@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="css/new.css" rel="stylesheet">
+</head>
+<body>
+	<img id="logo" src="img/logo.png" alt="Logo">
+</body>
+</html>
+<script>
+	const logo = document.getElementById("logo");
+
+	logo.addEventListener("click", () => {
+		logo.classList.add("animate");
+
+		// go to another page after 1 second
+		setTimeout(() => {
+			window.location.href = "start_page/team.html";
+		}, 500);
+	});
+</script>
+

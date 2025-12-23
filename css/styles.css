@@ -82,6 +82,10 @@ h2 {
     margin: 25px 20px; /* Add some vertical spacing */
     font-size: 2rem; /* Adjust font size as needed */
     text-align: center; /* Center-align text */
+}
+:root {
+	color-scheme: only light;
+}
     line-height: 1.5; /* Improve readability */
 }
 h3 {

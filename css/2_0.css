@@ -1,3 +1,6 @@
+/* Reset and general styles */
+:root { color-scheme: only light; }
+
 /* General Styles */
 * {
     margin: 0;

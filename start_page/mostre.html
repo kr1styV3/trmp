@@ -20,6 +20,79 @@
 		<a href="info.html" class="nav-item" data-href="info.html">Info e Candidature</a>
 	</nav>
 
+	<section class="mostre-carousel">
+		<div class="carousel-container">
+			<div class="carousel-item">
+				<a href="../html/14_0.html">
+					<img alt="Exhibition 14_0" src="../img/ex14/14_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/13_0.html">
+					<img alt="Exhibition 13_0" src="../img/ex13/13_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/12_0.html">
+					<img alt="Exhibition 12_0" src="../img/ex12/12_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/11_0.html">
+					<img alt="Exhibition 11_0" src="../img/ex11/11_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/10_0.html">
+					<img alt="Exhibition 10_0" src="../img/ex10/10_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/9_0.html">
+					<img alt="Exhibition 9_0" src="../img/ex9/9_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/6_0.html">
+					<img alt="Exhibition 6_0" src="../img/ex6/6_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/5_0.html">
+					<img alt="Exhibition 5_0" src="../img/ex5/5_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/4_0.html">
+					<img alt="Exhibition 4_0" src="../img/ex4/4_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/3_0.html">
+					<img alt="Exhibition 3_0" src="../img/ex3/3_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/2_0.html">
+					<img alt="Exhibition 2_0" src="../img/ex2/2_logo.jpg">
+				</a>
+			</div>
+			<div class="carousel-item">
+				<a href="../html/1_0.html">
+					<img alt="Exhibition 1_0" src="../img/ex1/1_logo.jpg">
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer-light">
+		<div class="footer-links">
+			<a class="footer-link-light" href="../privacy/privacy.html">Privacy</a>
+			<span class="footer-sep">|</span>
+			<a class="footer-link-light" href="../privacy/terms.html">Termini e Condizioni</a>
+		</div>
+	</footer>
+
 </body>
 </html>
 <script>
@@ -36,6 +109,14 @@
 		});
 	}
 
+	function goToItem(item, delay = 220) {
+		if (!item) return;
+		centerItem(item);
+		setTimeout(() => {
+			window.location.href = item.dataset.href || item.getAttribute('href');
+		}, delay);
+	}
+
 	// centra la pagina attuale al load
 	window.addEventListener("load", () => {
 		const active = nav.querySelector(".active");
@@ -47,12 +128,212 @@
 		item.addEventListener("click", e => {
 			e.preventDefault();
 
-			centerItem(item);
-
-			setTimeout(() => {
-				window.location.href = item.dataset.href;
-			}, 300); // durata animazione
+			goToItem(item, 260);
 		});
 	});
+
+	function setupNavSwipe(container) {
+		let startX = 0;
+		let startY = 0;
+		const MIN_SWIPE = 48;
+
+		container.addEventListener('touchstart', (e) => {
+			if (e.touches.length > 1) return;
+			startX = e.touches[0].clientX;
+			startY = e.touches[0].clientY;
+		}, { passive: true });
+
+		container.addEventListener('touchend', (e) => {
+			if (!startX && !startY) return;
+			const touch = e.changedTouches[0];
+			const dx = touch.clientX - startX;
+			const dy = touch.clientY - startY;
+			startX = 0;
+			startY = 0;
+
+			if (Math.abs(dx) < MIN_SWIPE || Math.abs(dx) <= Math.abs(dy)) return;
+
+			const list = Array.from(items);
+			const activeIndex = list.findIndex(el => el.classList.contains('active'));
+			if (activeIndex === -1) return;
+			const step = dx < 0 ? 1 : -1;
+			const target = list[(activeIndex + step + list.length) % list.length];
+			goToItem(target, 0);
+		}, { passive: true });
+	}
+
+	setupNavSwipe(nav);
 </script>
+
+<script>
+	// Auto-scroll and swipe support for the carousel
+	const carousel = document.querySelector('.carousel-container');
+	const carouselItems = document.querySelectorAll('.carousel-item');
+	let autoScrollTimer;
+
+	function getStep() {
+		if (!carouselItems.length) return 0;
+		const first = carouselItems[0];
+		const gap = parseInt(getComputedStyle(carousel).columnGap || '20', 10) || 20;
+		return first.getBoundingClientRect().width + gap;
+	}
+
+	function startAutoScroll() {
+		stopAutoScroll();
+		autoScrollTimer = setInterval(() => {
+			const step = getStep();
+			if (!step) return;
+			const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+			const next = carousel.scrollLeft + step;
+			if (next >= maxScroll - 4) {
+				carousel.scrollTo({ left: 0, behavior: 'smooth' });
+			} else {
+				carousel.scrollBy({ left: step, behavior: 'smooth' });
+			}
+		}, 3000);
+	}
+
+	function stopAutoScroll() {
+		if (autoScrollTimer) clearInterval(autoScrollTimer);
+	}
+
+	// Pause on hover (desktop)
+	carousel.addEventListener('mouseenter', stopAutoScroll);
+	carousel.addEventListener('mouseleave', startAutoScroll);
+
+	// Touch swipe (mobile)
+	let touchStartX = 0;
+	let touchDeltaX = 0;
+
+	carousel.addEventListener('touchstart', (e) => {
+		stopAutoScroll();
+		touchStartX = e.touches[0].clientX;
+		touchDeltaX = 0;
+	}, { passive: true });
+
+	carousel.addEventListener('touchmove', (e) => {
+		if (!touchStartX) return;
+		touchDeltaX = e.touches[0].clientX - touchStartX;
+	}, { passive: true });
+
+	carousel.addEventListener('touchend', () => {
+		const step = getStep();
+		const threshold = step * 0.3; // swipe sensitivity
+		if (touchDeltaX < -threshold) {
+			carousel.scrollBy({ left: step, behavior: 'smooth' });
+		} else if (touchDeltaX > threshold) {
+			carousel.scrollBy({ left: -step, behavior: 'smooth' });
+		}
+		touchStartX = 0;
+		touchDeltaX = 0;
+		startAutoScroll();
+	}, { passive: true });
+
+	// Kick off auto scroll
+	startAutoScroll();
+
+	// Cleanup on visibility change to avoid runaway timers
+	document.addEventListener('visibilitychange', () => {
+		if (document.hidden) stopAutoScroll(); else startAutoScroll();
+	});
+</script>
+
+	<style>
+		.mostre-carousel {
+			padding: 40px 20px 60px;
+			color: #fff;
+		}
+
+		.mostre-carousel h2 {
+			margin-bottom: 24px;
+			font-size: 1.8rem;
+			text-align: center;
+		}
+
+		.carousel-container {
+			display: grid;
+			grid-auto-flow: column;
+			grid-auto-columns: 260px;
+			grid-template-rows: repeat(2, 260px);
+			column-gap: 20px;
+			row-gap: 20px;
+			overflow-x: auto;
+			padding: 12px 8px;
+			scroll-behavior: smooth;
+			margin: 0 auto;
+			width: 94%;
+			max-width: 1400px;
+		}
+
+		.carousel-container::-webkit-scrollbar {
+			height: 8px;
+		}
+
+		.carousel-container::-webkit-scrollbar-thumb {
+			background: #555;
+			border-radius: 4px;
+		}
+
+		/* Hide scrollbar on hover */
+		.carousel-container:hover {
+			scrollbar-width: none; /* Firefox */
+		}
+
+		.carousel-container:hover::-webkit-scrollbar {
+			display: none; /* WebKit */
+		}
+
+		.carousel-item {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 10px;
+			box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+		}
+
+		.carousel-item:hover {
+			transform: scale(1.05);
+			box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+		}
+
+		.carousel-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+
+		.carousel-item:hover img {
+			transform: scale(1.06);
+		}
+
+		@media (max-width: 768px) {
+			.mostre-carousel {
+				padding: 30px 12px 40px;
+			}
+
+			.mostre-carousel h2 {
+				font-size: 1.4rem;
+			}
+
+			.carousel-container {
+				grid-auto-columns: 200px;
+				grid-template-rows: repeat(2, 200px);
+				column-gap: 16px;
+				row-gap: 16px;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.carousel-container {
+				scroll-behavior: auto;
+			}
+			.carousel-item,
+			.carousel-item img {
+				transition: none;
+			}
+		}
+	</style>
 

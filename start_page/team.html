@@ -20,6 +20,52 @@
 		<a href="info.html" class="nav-item" data-href="info.html">Info e Candidature</a>
 	</nav>
 
+	<div class="team-carousel">
+		<button class="carousel-btn prev" id="prevBtn">‹</button>
+
+		<div class="carousel-container">
+			<div class="carousel-track" id="carouselTrack">
+				<div class="team-card">
+					<img src="klx.png" alt="Team Member 1">
+					<h3>klx_bob</h3>
+					<p class="role">Creative Director</p>
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+				</div>
+
+				<div class="team-card">
+					<img src="me.png" alt="Team Member 2">
+					<h3>Laura Bianchi</h3>
+					<p class="role">Art Curator</p>
+					<p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+				</div>
+
+				<div class="team-card">
+					<img src="red.png" alt="Team Member 3">
+					<h3>Giovanni Verdi</h3>
+					<p class="role">Exhibition Manager</p>
+					<p class="description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.</p>
+				</div>
+
+				<div class="team-card">
+					<img src="squalo.png" alt="Team Member 4">
+					<h3>Sofia Neri</h3>
+					<p class="role">Communications Lead</p>
+					<p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+				</div>
+			</div>
+		</div>
+
+		<button class="carousel-btn next" id="nextBtn">›</button>
+	</div>
+
+	<footer class="footer-light">
+		<div class="footer-links">
+			<a class="footer-link-light" href="../privacy/privacy.html">Privacy</a>
+			<span class="footer-sep">|</span>
+			<a class="footer-link-light" href="../privacy/terms.html">Termini e Condizioni</a>
+		</div>
+	</footer>
+
 </body>
 </html>
 <script>
@@ -36,6 +82,14 @@
 		});
 	}
 
+	function goToItem(item, delay = 220) {
+		if (!item) return;
+		centerItem(item);
+		setTimeout(() => {
+			window.location.href = item.dataset.href || item.getAttribute('href');
+		}, delay);
+	}
+
 	// centra la pagina attuale al load
 	window.addEventListener("load", () => {
 		const active = nav.querySelector(".active");
@@ -47,12 +101,288 @@
 		item.addEventListener("click", e => {
 			e.preventDefault();
 
-			centerItem(item);
-
-			setTimeout(() => {
-				window.location.href = item.dataset.href;
-			}, 300); // durata animazione
+			goToItem(item, 260);
 		});
 	});
+
+	function setupNavSwipe(container) {
+		let startX = 0;
+		let startY = 0;
+		const MIN_SWIPE = 48;
+
+		container.addEventListener('touchstart', (e) => {
+			if (e.touches.length > 1) return;
+			startX = e.touches[0].clientX;
+			startY = e.touches[0].clientY;
+		}, { passive: true });
+
+		container.addEventListener('touchend', (e) => {
+			if (!startX && !startY) return;
+			const touch = e.changedTouches[0];
+			const dx = touch.clientX - startX;
+			const dy = touch.clientY - startY;
+			startX = 0;
+			startY = 0;
+
+			if (Math.abs(dx) < MIN_SWIPE || Math.abs(dx) <= Math.abs(dy)) return;
+
+			const list = Array.from(items);
+			const activeIndex = list.findIndex(el => el.classList.contains('active'));
+			if (activeIndex === -1) return;
+			const step = dx < 0 ? 1 : -1;
+			const target = list[(activeIndex + step + list.length) % list.length];
+			goToItem(target, 0);
+		}, { passive: true });
+	}
+
+	setupNavSwipe(nav);
 </script>
+
+<script>
+	// Carousel functionality
+	const track = document.getElementById('carouselTrack');
+	const prevBtn = document.getElementById('prevBtn');
+	const nextBtn = document.getElementById('nextBtn');
+	const cards = document.querySelectorAll('.team-card');
+	const carouselShell = document.querySelector('.team-carousel');
+
+	let currentIndex = 0;
+
+	function getVisibleCount() {
+		return window.innerWidth <= 768 ? 1 : 2;
+	}
+
+	function getGap() {
+		const s = window.getComputedStyle(track);
+		const gap = s.getPropertyValue('gap') || s.getPropertyValue('-webkit-gap') || '20px';
+		return parseInt(gap, 10) || 20;
+	}
+
+	function updateCarousel() {
+		if (!cards.length) return;
+
+		const visible = getVisibleCount();
+		const cardWidth = cards[0].offsetWidth;
+		const gap = getGap();
+		const maxIndex = Math.max(0, cards.length - visible);
+
+		if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+		track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+
+		// Update button states - disable only when there's nothing to scroll
+		const noScroll = maxIndex === 0;
+		prevBtn.disabled = noScroll;
+		nextBtn.disabled = noScroll;
+	}
+
+	prevBtn.addEventListener('click', () => {
+		const visible = getVisibleCount();
+		const maxIndex = Math.max(0, cards.length - visible);
+		if (currentIndex > 0) {
+			currentIndex -= visible;
+			if (currentIndex < 0) currentIndex = 0;
+		} else if (maxIndex > 0) {
+			// wrap to end
+			currentIndex = maxIndex;
+		}
+		updateCarousel();
+	});
+
+	function advanceNext() {
+		const visible = getVisibleCount();
+		const maxIndex = Math.max(0, cards.length - visible);
+		if (currentIndex < maxIndex) {
+			currentIndex += visible;
+			if (currentIndex > maxIndex) currentIndex = maxIndex;
+		} else if (maxIndex > 0) {
+			// wrap to start
+			currentIndex = 0;
+		}
+		updateCarousel();
+	}
+
+	nextBtn.addEventListener('click', advanceNext);
+
+	// Auto-advance every 8s with pause on hover, touch and visibility change
+	let autoTimer = null;
+	const AUTO_DELAY = 8000;
+
+	function startAuto() {
+		stopAuto();
+		autoTimer = setInterval(() => {
+			advanceNext();
+		}, AUTO_DELAY);
+	}
+
+	function stopAuto() {
+		if (autoTimer) {
+			clearInterval(autoTimer);
+			autoTimer = null;
+		}
+	}
+
+	// (no hover pause on desktop: auto-advance runs even when mouse is over the carousel)
+
+	// Pause on touchstart (mobile) and resume on touchend
+	carouselShell?.addEventListener('touchstart', stopAuto, { passive: true });
+	carouselShell?.addEventListener('touchend', () => setTimeout(startAuto, 600));
+
+	// Pause when page becomes hidden
+	document.addEventListener('visibilitychange', () => {
+		if (document.hidden) stopAuto(); else startAuto();
+	});
+
+	// Clean up on unload
+	window.addEventListener('beforeunload', stopAuto);
+
+	// Clean up on unload
+	window.addEventListener('beforeunload', stopAuto);
+
+	// Update on window resize
+	window.addEventListener('resize', () => {
+		updateCarousel();
+	});
+
+	// Initialize
+	updateCarousel();
+
+	// Start auto after initial layout
+	startAuto();
+
+	// Drop-in animation on load
+	if (carouselShell) {
+		carouselShell.classList.add('anim-init');
+		cards.forEach((card, idx) => {
+			setTimeout(() => {
+				card.classList.add('drop-in');
+			}, idx * 120);
+		});
+		setTimeout(() => {
+			carouselShell.classList.remove('anim-init');
+		}, cards.length * 120 + 800);
+	}
+</script>
+
+<style>
+	.team-carousel {
+		position: relative;
+		max-width: 1100px;
+		width: min(95vw, 1100px);
+		margin: 50px auto;
+		padding: 0 24px;
+	}
+
+	.carousel-container {
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.carousel-track {
+		display: flex;
+		gap: 20px;
+		transition: transform 0.4s ease-in-out;
+	}
+
+	.team-card {
+		flex: 0 0 calc(50% - 10px);
+		background: white;
+		border-radius: 12px;
+		padding: 30px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		text-align: center;
+	}
+
+	.team-carousel.anim-init .team-card {
+		opacity: 0;
+		transform: translateY(-12px);
+	}
+
+	.team-card.drop-in {
+		animation: dropIn 0.45s ease forwards;
+	}
+
+	.team-card img {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-bottom: 20px;
+	}
+
+	.team-card h3 {
+		font-size: 24px;
+		margin-bottom: 8px;
+		color: #333;
+	}
+
+	.team-card .role {
+		font-size: 16px;
+		color: #666;
+		font-style: italic;
+		margin-bottom: 16px;
+	}
+
+	.team-card .description {
+		font-size: 14px;
+		color: #555;
+		line-height: 1.6;
+	}
+
+	.carousel-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(0, 0, 0, 0.5);
+		color: white;
+		border: none;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		font-size: 24px;
+		cursor: pointer;
+		transition: background 0.3s;
+		z-index: 10;
+	}
+
+	.carousel-btn:hover:not(:disabled) {
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.carousel-btn:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+
+	.carousel-btn.prev {
+		left: 10px;
+	}
+
+	.carousel-btn.next {
+		right: 10px;
+	}
+
+	@keyframes dropIn {
+		0% { opacity: 0; transform: translateY(-16px); }
+		100% { opacity: 1; transform: translateY(0); }
+	}
+
+	@media (max-width: 768px) {
+		.team-carousel {
+			padding: 0 16px;
+		}
+
+		.team-card {
+			padding: 20px;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		.team-card img {
+			width: 150px;
+			height: 150px;
+		}
+	}
+</style>
+
 

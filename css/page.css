@@ -9,6 +9,10 @@ main {
 html {
     height: 100%;
 }
+:root {
+	color-scheme: only light;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;

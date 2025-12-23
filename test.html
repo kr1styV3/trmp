@@ -16,10 +16,21 @@
 	logo.addEventListener("click", () => {
 		logo.classList.add("animate");
 
-		// go to another page after 1 second
-		setTimeout(() => {
+		// navigate after the click animation ends, with a smooth fade-out
+		let fallback = setTimeout(() => {
+			document.body.classList.add('fade-out');
 			window.location.href = "start_page/team.html";
-		}, 500);
+		}, 800); // fallback in case animationend doesn't fire
+
+		function onAnimEnd() {
+			clearTimeout(fallback);
+			logo.removeEventListener('animationend', onAnimEnd);
+			document.body.classList.add('fade-out');
+			setTimeout(() => {
+				window.location.href = "start_page/team.html";
+			}, 120);
+		}
+		logo.addEventListener('animationend', onAnimEnd);
 	});
 </script>
 
